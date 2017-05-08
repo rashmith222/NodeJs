@@ -4,9 +4,9 @@ function firstFile1(fileName){
 	return	new Promise(function(resolve,reject){
 		fs.readFile(fileName, 'utf8', (err, data) => {
 	    if(err) {
-	        return reject(err)
+	     reject(err)
 	     }
-	     return resolve(data)
+	     resolve(data)
 	    })
 	});
 }
