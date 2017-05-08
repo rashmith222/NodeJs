@@ -1,26 +1,32 @@
 var fs = require('fs');
 
-function firstFile1(fileName){
-	return	new Promise(function(resolve,reject){
-		fs.readFile(fileName, 'utf8', (err, data) => {
-	    if(err) {
-	     reject(err)
-	     }
-	     resolve(data)
-	    })
-	});
-}
-firstFile1('Hello.txt')
-.then(data => {
-    console.log(data);
-})
-.catch(error => {
-    console.log(error);
+var myFirstFilePromise = new Promise(function(resolve, reject) {
+  fs.readFile('Hello.txt', 'utf8', (err, data) => {
+    if (err) {
+      reject(err);
+    }
+    resolve(data);
+  });
 });
-firstFile1('Hello1.txt')
-.then(data => {
-    console.log(data);
-})
-.catch(error => {
-    console.log(error);
+myFirstFilePromise
+  .then(function(data1) {
+    console.log(data1);
+  })
+  .catch(function(err) {
+    console.error(err);
+  });
+var mySecondFilePromise = new Promise(function(resolve, reject) {
+  fs.readFile('Hello1.txt', 'utf8', (err, data1) => {
+    if (err) {
+      reject(err);
+    }
+    resolve(data1);
+  });
 });
+mySecondFilePromise
+  .then(function(data1) {
+    console.log(data1);
+  })
+  .catch(function(err) {
+    console.error(err);
+  });
