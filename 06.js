@@ -10,7 +10,10 @@ function readfilepromised(filename) {
     });
   });
 }
-Promise.all(['Hello.txt', 'Hello1.txt', 'Hello2.txt']).then(data => {
+var A = ['Hello.txt', 'Hello1.txt', 'Hello2.txt'];
+var arr = A.map(readfilepromised);
+/*Promise.all(['Hello.txt', 'Hello1.txt', 'Hello2.txt']).then(data => {
   readfilepromised(data);
   console.log(data1);
 });
+*/
