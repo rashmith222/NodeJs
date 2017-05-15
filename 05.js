@@ -11,7 +11,8 @@ function readfilepromised(filename) {
 }
 readfilepromised('Hello.txt').then(function(data) {
   console.log(data);
+  return readfilepromised('Hello1.txt').;
 });
-readfilepromised('Hello1.txt').then(function(data1) {
+.then(function(data1) {
   console.log(data1);
 });
