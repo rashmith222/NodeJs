@@ -1,4 +1,5 @@
 var fs = require('fs');
+
 function readfilepromised(filename) {
   return new Promise(function(resolve, reject) {
     fs.readFile(filename, 'utf8', (err, data) => {
@@ -9,10 +10,12 @@ function readfilepromised(filename) {
     });
   });
 }
-readfilepromised('Hello.txt').then(function(data) {
-  console.log(data);
-  return readfilepromised('Hello1.txt').;
-});
-.then(function(data1) {
-  console.log(data1);
-});
+
+readfilepromised('Hello.txt')
+  .then(function(data) {
+    console.log(data);
+    return readfilepromised('Hello1.txt');
+  })
+  .then(function(data1) {
+    console.log(data1);
+  });
