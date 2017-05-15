@@ -11,15 +11,7 @@ function readfilepromised(filename) {
   });
 }
 
-var myFirstFilePromise = new Promise(function(resolve, reject) {
-  fs.readFile('Hello.txt', 'utf8', (err, data) => {
-    if (err) {
-      reject(err);
-    }
-    resolve(data);
-  });
-});
-myFirstFilePromise
+readfilepromised('Hello.txt')
   .then(function(data) {
     console.log(data);
     return readfilepromised('Hello1.txt');
